@@ -21,7 +21,7 @@ pipeline {
         echo 'Testing'
       }
     }
-    stage {
+    stage('Give input'){
       step {
         input('Do you want to proceed muggle?')
       }
