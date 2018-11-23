@@ -21,6 +21,11 @@ pipeline {
         echo 'Testing'
       }
     }
+    stage {
+      step {
+        input('Do you want to proceed muggle?')
+      }
+    }
     stage('Deploy') {
       steps {
         echo 'Deploy'
