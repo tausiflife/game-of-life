@@ -5,7 +5,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        echo 'Building'
+        mvn clean install
+        archiveArtifacts actifacts: '**/target/*.jar', fingerprint: true
       }
     }
     stage('Test') {
