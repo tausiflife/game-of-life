@@ -5,6 +5,9 @@ pipeline {
     maven 'maven3'
     jdk 'jdk1.8'
   }
+  parameters {
+    string(name: 'greeting', defaultValue: 'hello', description: 'How should i greet world?')
+  }
   stages {
     stage('Initialize') {
       steps {
@@ -26,7 +29,7 @@ pipeline {
         script {
              def userInput = input(id: 'userInput', message: 'Merge to?',
              parameters: [[$class: 'ChoiceParameterDefinition', defaultValue: 'strDef', 
-                description:'describing choices', name:'nameChoice', choices: "QA\nUAT\nProduction\nDevelop\nMaster"]
+                description:'describing choices', name:'nameChoice', choices: "QA\nUAT\nProduction\nDevelop\nMaster\n${params.greeting}"]
              ])
 
             println(userInput); //Use this value to branch to different logic if needed
