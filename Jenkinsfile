@@ -22,7 +22,7 @@ pipeline {
       }
     }
     stage('Give input'){
-      step {
+      steps {
         input('Do you want to proceed muggle?')
       }
     }
