@@ -6,7 +6,7 @@ pipeline {
     stage('Build') {
       steps {
         mvn clean install
-        archiveArtifacts actifacts: '**/target/*.jar', fingerprint: true
+        archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
       }
     }
     stage('Test') {
